@@ -1,0 +1,35 @@
+<?xml version = "1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:simpleType name="Enum">
+        <xsd:restriction>
+            <xsd:enumeration value="first"></xsd:enumeration>
+            <xsd:enumeration value="second"></xsd:enumeration>
+            <xsd:enumeration value="third"></xsd:enumeration>
+            <xsd:enumeration value="fourth"></xsd:enumeration>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:complexType name="student">
+        <xsd:sequence>
+            <xsd:element name="name" type="xsd:string"></xsd:element>
+            <xsd:element name="surname" type="xsd:string"></xsd:element>
+            <xsd:element name="averageScore" type="xsd:double"></xsd:element>
+            <xsd:element name="budgetForm" type="xsd:boolean"></xsd:element>
+            <xsd:element name="course" type="Enum"></xsd:element>
+            <xsd:element name="Speciality" type="xsd:string"></xsd:element>
+            <xsd:element name="age" type="xsd:integer"></xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="Dean">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="list">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="Student" type="student"></xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
