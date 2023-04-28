@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="lab3_jar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lab3/out/artifacts/lab3_jar/log4j-1.2.17.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lab3/out/artifacts/lab3_jar/lab3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lab3/out/artifacts/lab3_jar/data-core-1.4.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lab3/out/artifacts/lab3_jar/data-gson-1.4.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lab3/out/artifacts/lab3_jar/gson-2.9.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

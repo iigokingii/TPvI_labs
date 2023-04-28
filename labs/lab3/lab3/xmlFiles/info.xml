@@ -1,0 +1,32 @@
+<Dean xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="info.xsd">
+    <list>
+        <Student>
+            <name>1</name>
+            <surname>2</surname>
+            <averageScore>2.4</averageScore>
+            <budgetForm>true</budgetForm>
+            <course>first</course>
+            <Speciality>POIT</Speciality>
+            <age>22</age>
+        </Student>
+        <Student>
+            <name>2</name>
+            <surname>3</surname>
+            <averageScore>4.4</averageScore>
+            <budgetForm>false</budgetForm>
+            <course>third</course>
+            <Speciality>POIT</Speciality>
+            <age>20</age>
+        </Student>
+        <Student>
+            <name>qwe</name>
+            <surname>sasda</surname>
+            <averageScore>9.4</averageScore>
+            <budgetForm>false</budgetForm>
+            <course>fourth</course>
+            <Speciality>ISIT</Speciality>
+            <age>21</age>
+        </Student>
+    </list>
+</Dean>
