@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+    <!--Фильтр регистрации-->
+    <filter>
+        <filter-name>RegFilter</filter-name>
+        <filter-class>com.example.lab9.Task5.FilterAuthorization</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>RegFilter</filter-name>
+        <servlet-name>ServletTask2</servlet-name>
+    </filter-mapping>
+    
+    <servlet>
+        <servlet-name>GFirstServlet</servlet-name>
+        <servlet-class>com.example.lab9.Task7.GFirstServlet</servlet-class>
+        <init-param>
+            <param-name>num</param-name>
+            <param-value>5</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GFirstServlet</servlet-name>
+        <url-pattern>/GFirstServlet</url-pattern>
+    </servlet-mapping>
+    
+
+
+
+
+</web-app>
