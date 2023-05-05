@@ -32,13 +32,27 @@ public class RegisterServlet extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		String Login = request.getParameter("Login");
 		String Password = request.getParameter("Password");
-		dbcommands.addUser(Login,Password);
-		
-		
-		writer.println("<html><body>");
-		writer.println("<h1>You're registrated</h1>");
-		writer.println("</body></html>");
-		
+		boolean find = false;
+		if(Login.equals("") || Password.equals("")){
+			response.sendRedirect("registration.jsp?error=true&Message=Имя пользователя уже используется");
+		}
+		else{
+			List<User>users = dbcommands.GetList();
+			for (User user:users) {
+				if(user.GetLogin().equals(Login)){
+					find = true	;
+				}
+			}
+			if(find)
+				response.sendRedirect("registration.jsp?error=true&Message=Имя пользователя уже используется");
+			else{
+				dbcommands.addUser(Login,Password);
+//		writer.println("<html><body>");
+//		writer.println("<h1>You're registrated</h1>");
+//		writer.println("</body></html>");
+				request.getRequestDispatcher("/login.jsp").forward(request,response);
+			}
+		}
 	}
 	
 	@Override

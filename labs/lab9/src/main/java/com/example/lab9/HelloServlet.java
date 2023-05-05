@@ -4,7 +4,31 @@ import java.io.*;
 
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
-//qwe
+//netstat -ano | findstr :8080
+//taskkill /PID 7364 /F
+/*
+* <p><a href="'<c:url value ="#"/>'">Create New</a></p>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Server</th>
+            </tr>
+            <c:forEach var ="user" items ="${users}">
+                <tr>
+                    <td>${user.Name}</td>
+                    <td>${user.Surname}</td>
+                    <td>${user.Server}</td>
+                </tr>
+            </c:forEach>
+        </table>
+*
+* */
+
+
+
+
+
 @WebServlet(name = "helloServlet", value = "/hello-servlet")
 public class HelloServlet extends HttpServlet {
 	private String message;

@@ -34,6 +34,34 @@ public class DBCommands {
 		}
 		return users;
 	}
+//	public List<Stud_Serv> GetListStud(String Table){
+//		List<Stud_Serv> users = new ArrayList<>();
+//		try {
+//			Connection con =database.getConnection();
+//			PreparedStatement statement = con.prepareStatement("SELECT * FROM ?");
+//			statement.setString(1,Table);
+//			ResultSet resultSet = statement.executeQuery();
+//			while(resultSet.next()){
+//				Stud_Serv user = new Stud_Serv();
+////				user.SetRole(resultSet.getString("ROLE"));
+////				user.SetLogin(resultSet.getString("LOGIN"));
+////				user.SetPassword(resultSet.getString("Password"));
+//				user.setID(Integer.parseInt(resultSet.getString("ID")));
+//				user.setName(resultSet.getString("NAME"));
+//				user.setSurname(resultSet.getString("SURNAME"));
+//				user.setServer(resultSet.getString("SERVER"));
+//				users.add(user);
+//			}
+//			resultSet.close();
+//			statement.close();
+//			con.close();
+//		}
+//		catch (Exception ex){
+//			ex.printStackTrace();
+//		}
+//		return users;
+//	}
+	
 	public void addUser(String _Login,String _Password) {
 		try {
 			Connection con = database.getConnection();

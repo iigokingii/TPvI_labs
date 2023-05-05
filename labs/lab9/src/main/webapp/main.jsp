@@ -11,9 +11,12 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Greetings!</h1>
-<p>Name: ${Login}</p>
-<p>Role: ${Role}</p>
-<p>Date: ${Date}</p>
+    <jsp:include page="Header.jsp"/>
+        <h1>Greetings!</h1>
+        <p>Name: ${Login}</p>
+        <p>Role: ${Role}</p>
+        <p>Date: ${Date}</p>
+
+    <jsp:include page="Footer.jsp"/>
 </body>
 </html>

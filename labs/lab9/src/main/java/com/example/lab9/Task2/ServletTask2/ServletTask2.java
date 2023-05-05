@@ -61,7 +61,8 @@ public class ServletTask2 extends HttpServlet {
 		if(isFind)
 			request.getRequestDispatcher("/main.jsp").forward(request,response);
 		else
-			request.getRequestDispatcher("/registration.jsp").forward(request,response);
+			response.sendRedirect("login.jsp?error=true");
+			//request.getRequestDispatcher("/registration.jsp").forward(request,response);
 		printer.println("</body></html>");
 		printer.close();
 	}

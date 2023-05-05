@@ -17,5 +17,8 @@
     Password <input type="text" name="Password"/> <br/> <br/>
     <input type="submit" value="Зарегистрироваться"/>
 </form>
+<%if(request.getParameter("error")!=null && request.getParameter("error").equals("true")){%>
+<p style="color:red">Ошибка регистрации.</p>
+<%}%>
 </body>
 </html>
