@@ -17,6 +17,10 @@
         <p>Role: ${Role}</p>
         <p>Date: ${Date}</p>
 
+
+
+
+
     <jsp:include page="Footer.jsp"/>
 </body>
 </html>
