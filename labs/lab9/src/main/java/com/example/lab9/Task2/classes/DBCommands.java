@@ -9,9 +9,11 @@ import java.util.List;
 
 public class DBCommands {
 	private Database database;
+	
 	public DBCommands(Database database){
 		this.database = database;
 	}
+	List<Stud_Serv> users;
 	public List<User> GetList(){
 		List<User> users = new ArrayList<>();
 		try {
@@ -34,8 +36,19 @@ public class DBCommands {
 		}
 		return users;
 	}
+	public void update(Stud_Serv studServ){
+		try {
+			Connection con = database.getConnection();
+			PreparedStatement statement = con.prepareStatement("DELETE FROM STUD_SERV WHERE ID = ?");
+			statement.setInt(1,studServ.getID());
+			statement.executeUpdate();
+			addStud(studServ);
+		}
+		catch (Exception ex){
+		}
+	}
 	public List<Stud_Serv> GetListStud(){
-		List<Stud_Serv> users = new ArrayList<>();
+		users = new ArrayList<>();
 		try {
 			Connection con =database.getConnection();
 			PreparedStatement statement = con.prepareStatement("SELECT * FROM STUD_SERV");
@@ -72,6 +85,21 @@ public class DBCommands {
 			ex.printStackTrace();
 		}
 	}
+	public void addStud(Stud_Serv student) {
+		try {
+			Connection con = database.getConnection();
+			Statement statement = con.createStatement();
+			statement.executeUpdate("INSERT INTO STUD_SERV(ID,NAME,SURNAME,SERVER) " +
+					"VALUES ('" + student.getID() +"', '" + student.getName() + "', '" + student.getSurname() +"','" + student.getServer() +"')");
+		}
+		catch (Exception ex){
+			ex.printStackTrace();
+		}
+	}
+	
+	
+	
+	
 	public void addUserByAdmin(String _Login,String _Password,String _Role) {
 		try {
 			Connection con = database.getConnection();
@@ -82,6 +110,10 @@ public class DBCommands {
 		catch (Exception ex){
 			ex.printStackTrace();
 		}
+	}
+	public Stud_Serv getStud_Serv(int id){
+		users = GetListStud();
+		return users.get(id);
 	}
 	public void DeleteUser(String _Login){
 		try{

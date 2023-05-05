@@ -23,6 +23,25 @@ import jakarta.servlet.annotation.*;
             </c:forEach>
         </table>
 *
+*
+*
+*
+*
+*
+*
+* <c:forEach var ="user" items ="${usersFromDb}">
+            <tr>
+                <td>${user.getName()}</td>
+                <td>${user.getSurname()}</td>
+                <td>${user.getServer()}</td>
+                <td>
+                    <a href='<c:url value="/edit?id=${product.id}" />'>Edit</a>
+                    <form method="post" action='<c:url value="/delete" />'>
+                        <input type="submit" value="Delete">
+                    </form>
+                </td>
+            </tr>
+        </c:forEach>
 * */
 
 

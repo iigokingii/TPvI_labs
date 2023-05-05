@@ -42,9 +42,14 @@ public class ServletTask2 extends HttpServlet {
 		String LoginCookie="Test",RoleCookie="Test",DateCookie="Starting Date" ;
 		for (User user : users){
 			if(user.GetLogin().equals(Login) && user.GetPassword().equals(Password)){
-				request.setAttribute("Login",user.GetLogin());
-				request.setAttribute("Role",user.GetRole());
-				request.setAttribute("Date",date);
+				List<Stud_Serv>usersFromDb =  dbcommands.GetListStud();
+				ServletContext servletContext = getServletContext();
+				
+				servletContext.setAttribute("Login",user.GetLogin());
+				servletContext.setAttribute("Role",user.GetRole());
+				servletContext.setAttribute("Date",date);
+				servletContext.setAttribute("usersFromDb",usersFromDb);
+				
 				isFind= true;
 				LoginCookie = user.GetLogin();
 				RoleCookie = user.GetRole();
@@ -60,8 +65,7 @@ public class ServletTask2 extends HttpServlet {
 		response.addCookie(cookielog);
 		//response.addCookie(cookieDate);
 		if(isFind){
-			List<Stud_Serv>usersFromDb =  dbcommands.GetListStud();
-			request.setAttribute("usersFromDb",usersFromDb);
+			//request.setAttribute("usersFromDb",usersFromDb);
 			request.getRequestDispatcher("/main.jsp").forward(request,response);
 		}
 		

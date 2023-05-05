@@ -1,10 +1,10 @@
 package com.example.lab9.Task2.classes;
 
 public class Stud_Serv {
-	public int ID;
-	public String Name;
-	public String Surname;
-	public String Server;
+	private int ID;
+	private String Name;
+	private String Surname;
+	private String Server;
 	public Stud_Serv(){
 
 	}
