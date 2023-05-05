@@ -2,6 +2,7 @@ package com.example.lab9.Task2.ServletTask2;
 
 import com.example.lab9.Task2.classes.DBCommands;
 import com.example.lab9.Task2.classes.Database;
+import com.example.lab9.Task2.classes.Stud_Serv;
 import com.example.lab9.Task2.classes.User;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -58,8 +59,12 @@ public class ServletTask2 extends HttpServlet {
 		response.addCookie(cookieRole);
 		response.addCookie(cookielog);
 		//response.addCookie(cookieDate);
-		if(isFind)
+		if(isFind){
+			List<Stud_Serv>usersFromDb =  dbcommands.GetListStud();
+			request.setAttribute("usersFromDb",usersFromDb);
 			request.getRequestDispatcher("/main.jsp").forward(request,response);
+		}
+		
 		else
 			response.sendRedirect("login.jsp?error=true");
 			//request.getRequestDispatcher("/registration.jsp").forward(request,response);

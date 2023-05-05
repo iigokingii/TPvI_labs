@@ -34,12 +34,11 @@ public class DBCommands {
 		}
 		return users;
 	}
-	public List<Stud_Serv> GetListStud(String Table){
+	public List<Stud_Serv> GetListStud(){
 		List<Stud_Serv> users = new ArrayList<>();
 		try {
 			Connection con =database.getConnection();
-			PreparedStatement statement = con.prepareStatement("SELECT * FROM ?");
-			statement.setString(1,Table);
+			PreparedStatement statement = con.prepareStatement("SELECT * FROM STUD_SERV");
 			ResultSet resultSet = statement.executeQuery();
 			while(resultSet.next()){
 				Stud_Serv user = new Stud_Serv();
