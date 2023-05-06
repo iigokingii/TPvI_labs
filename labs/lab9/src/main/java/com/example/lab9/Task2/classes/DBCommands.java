@@ -115,6 +115,18 @@ public class DBCommands {
 		users = GetListStud();
 		return users.get(id);
 	}
+	public void deleteStud(int id){
+		try {
+			Connection connection = database.getConnection();
+			Statement statement = connection.createStatement();
+			statement.executeUpdate("DELETE FROM STUD_SERV WHERE ID = '"+id+"'");
+		}
+		catch (Exception ex){
+		
+		}
+		
+	}
+	
 	public void DeleteUser(String _Login){
 		try{
 			Connection con = database.getConnection();

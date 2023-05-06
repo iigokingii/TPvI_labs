@@ -15,7 +15,6 @@
 </head>
 <body>
     <jsp:include page="Header.jsp"/>
-
         <h1>Greetings!</h1>
     <div style="border:10px ridge blueviolet;padding: 15px;width: 300px">
         <p>Name: ${Login}</p>
@@ -37,8 +36,9 @@
                 <td>${user.getSurname()}</td>
                 <td>${user.getServer()}</td>
                 <td>
-                    <a href='<c:url value="/Servlet-Edit?id=${user.getID()}" />'>Edit</a>
-                    <form method="post" action='<c:url value="/delete" />'>
+                    <a href='<c:url value="/Servlet-Edit?id=${(user.getID()-1)}" />'>Edit</a>
+                    <form method="post" action='<c:url value="/Delete-Servlet" />'>
+                        <input type="hidden" name="id" value="${user.getID()-1}">
                         <input type="submit" value="Delete">
                     </form>
                 </td>
