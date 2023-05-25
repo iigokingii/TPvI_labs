@@ -3,19 +3,106 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.example</groupId>
   <artifactId>lab11</artifactId>
-  <packaging>war</packaging>
+  <packaging>pom</packaging>
+  <profiles>
+    <profile>
+      <id>Profile1</id>
+      <modules>
+        <module>test</module>
+      </modules>
+    </profile>
+    <profile>
+      <id>Profile2</id>
+      <modules>
+        <module>test2</module>
+      </modules>
+    </profile>
+
+
+  </profiles>
+
+
+
+  <modules>
+    <module>module1</module>
+    <module>module2</module>
+
+  </modules>
   <version>1.0-SNAPSHOT</version>
   <name>lab11 Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <groupId>jakarta.servlet</groupId>
+      <artifactId>jakarta.servlet-api</artifactId>
+      <version>5.0.0</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>5.9.1</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>5.9.1</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.microsoft.sqlserver</groupId>
+      <artifactId>mssql-jdbc</artifactId>
+      <version>11.2.3.jre17</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-1.2-api</artifactId>
+      <version>2.19.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-dependency-plugin</artifactId>
+      <version>3.2.0</version>
+    </dependency>
   </dependencies>
+
   <build>
     <finalName>lab11</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+
+        <executions>
+          <execution>
+            <id>analyze-dependencies</id>
+            <goals>
+              <goal>analyze</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>analyze-duplicate-dependencies</id>
+            <goals>
+              <goal>analyze-duplicate</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>resolve-dependencies</id>
+            <goals>
+              <goal>resolve</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>resolve-plugins</id>
+            <goals>
+              <goal>resolve-plugins</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
   </build>
 </project>
